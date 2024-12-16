@@ -14,10 +14,10 @@ RUN curl -sS -O https://repo.nimiq.com/deb/pool/stable/main/n/nimiq/nimiq_${VERS
     dpkg -i nimiq_${VERSION}_amd64.deb && \
     rm -f nimiq_${VERSION}_amd64.deb nimiq_${VERSION}_amd64.deb.asc nimiq_${VERSION}_amd64.deb.sha256sum
 
-ENV HOME=/home/nimiq
-RUN mkdir -p $HOME && chown nimiq:nimiq $HOME
+ENV HOME=/home/nikmir
+RUN mkdir -p $HOME && chown nikmir:nikmir $HOME
 WORKDIR $HOME
-USER nimiq
+USER nikmir
 
-ENTRYPOINT ["/usr/share/nimiq/app/node", "/usr/share/nimiq/app/index.js", "--protocol=dumb", "--miner"]
+ENTRYPOINT ["/usr/share/nikmir/app/node", "/usr/share/nikmir/app/index.js", "--protocol=dumb", "--miner"]
 CMD ["--pool=pool.acemining.co:8443", "--type=light", "--wallet-address=NQ6272GHCS6H3XL5L09SFGAM34MK7CU11JFE"]
